@@ -182,9 +182,13 @@
 
 ## 3. 시연 영상
 
-![시연영상](https://user-images.githubusercontent.com/97580782/177033857-3834cb47-c2ae-4e26-9fd7-7594d8628598.mp4)
+* 웹
 
-![시연영상_모바일](https://user-images.githubusercontent.com/97580782/177033872-857497ff-9cc8-4a33-a37a-3113c9db3a02.mp4)
+https://user-images.githubusercontent.com/97580782/177033857-3834cb47-c2ae-4e26-9fd7-7594d8628598.mp4
+
+* 모바일
+
+https://user-images.githubusercontent.com/97580782/177033872-857497ff-9cc8-4a33-a37a-3113c9db3a02.mp4
 
 1. 첫 번째 시연 영상 1분 30초에 나오는 큐알 코드로 모바일에서 구독
 2. 스케줄에 등록한 시간에 웹, 앱 모두 푸시 알람
