@@ -34,12 +34,8 @@ footer, header, hgroup, main, menu, nav, section {
 body {
   line-height: 1;
   font-family: 'Pretendard';
-  overflow: scroll;
-  -ms-overflow-style: none;
+  overflow-x: hidden;
 }
-::-webkit-scrollbar {
-  display: none;
-  }
 menu, ol, ul {
   list-style: none;
 }

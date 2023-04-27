@@ -258,7 +258,7 @@ function Calendar() {
         <div className="px-10 pt-10 w-full md:w-4/5" id="CalendarWrapper">
           <header id="header" className="mb-10 md:flex md:items-start">
             <div className="flex-auto max-w-4xl">
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
+              <h1 className="text-3xl sm:text-4xl font-extrabold dark:text-slate-900">
                 Scheduler
               </h1>
               <p className="mt-4 text-base text-slate-700 dark:text-slate-400">
