@@ -13,11 +13,9 @@ function SupItem({ info }: supProps) {
   const handleDelete = async () => {
     try {
       await del(`schedule/daily-supplement/${info.pk_plan_id}`);
-      await get(
-        `schedule/?start=${new Date(start)}&finish=${new Date(end)}`,
-      ).then((res) => {
-        setSupplements(res.data.dailySupplement);
-      });
+      setSupplements((prev) =>
+        prev.filter((value) => value.pk_plan_id !== info.pk_plan_id),
+      );
     } catch (error: any) {
       console.log(error);
       if (error.response.data.message) {
