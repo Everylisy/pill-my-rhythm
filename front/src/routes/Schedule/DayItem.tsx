@@ -111,7 +111,7 @@ function DayItem({ task }: taskProps) {
             <Supplements
               info={info}
               task={task}
-              key={info.Supplement.caution}
+              key={info.Supplement.pk_supplement_id}
             />
           ))}
         </label>
