@@ -11,6 +11,7 @@ const YearlyChecklist = () => {
 
   const year = new Date().getFullYear();
   const [data, setData] = useState();
+
   const LoadYearlyData = async () => {
     try {
       if (isLogin) {
@@ -21,6 +22,7 @@ const YearlyChecklist = () => {
           date: string;
           count?: number;
         }
+
         const yearlyData = await res.data.map((element: checklist) => {
           const level = element.level;
           element.count = colorMap[level];
@@ -51,7 +53,6 @@ const YearlyChecklist = () => {
         rx: 3,
       }}
       rectRender={(props: any, data: any) => {
-        // if (!data.count) return <rect {...props} />;
         return (
           <Tooltip key={props.key} placement="top" content={`${data.date}`}>
             <rect {...props} />

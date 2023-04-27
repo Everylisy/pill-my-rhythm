@@ -11,11 +11,21 @@ interface supProps {
 function SupItem({ info }: supProps) {
   const setSupplements = useSetRecoilState(supplementAtom);
   const handleDelete = async () => {
-    await del(`schedule/daily-supplement/${info.pk_plan_id}`);
-    await get(`schedule/?start=${new Date(start)}&finish=${new Date(end)}`).then((res) => {
-      setSupplements(res.data.dailySupplement);
-    });
+    try {
+      await del(`schedule/daily-supplement/${info.pk_plan_id}`);
+      await get(
+        `schedule/?start=${new Date(start)}&finish=${new Date(end)}`,
+      ).then((res) => {
+        setSupplements(res.data.dailySupplement);
+      });
+    } catch (error: any) {
+      console.log(error);
+      if (error.response.data.message) {
+        alert(error.response.data.message);
+      }
+    }
   };
+
   return (
     <li onClick={handleDelete} className="cursor-pointer text-sm">
       {info.Supplement.name}

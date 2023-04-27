@@ -3,7 +3,7 @@ import Draggable from "devextreme-react/draggable";
 import styled from "styled-components";
 import { get } from "../../Api";
 import Supplements from "./Supplements";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { supplementAtom } from "../../atoms";
 import SupItem from "./SupItem";
 
@@ -50,7 +50,7 @@ export interface supInfo {
 
 function DayItem({ task }: taskProps) {
   const [supplementInfo, setSupplementInfo] = useState<supInfo[]>([]);
-  const [supplements, setSupplements] = useRecoilState(supplementAtom);
+  const supplements = useRecoilValue(supplementAtom);
 
   const supType = supplements.filter((data) => data.type === task.type);
   const onItemDragStart = (e: any) => {
@@ -71,30 +71,56 @@ function DayItem({ task }: taskProps) {
 
   return (
     <>
-      <Draggable clone={true} group={draggingGroupName} data={task} onDragStart={onItemDragStart} onDragEnd={onItemDragEnd}>
-        <DateLabel htmlFor={`modal-${task.text}`} className="modal-button cursor-pointer max-w-xs" onClick={handleClick}>
+      <Draggable
+        clone={true}
+        group={draggingGroupName}
+        data={task}
+        onDragStart={onItemDragStart}
+        onDragEnd={onItemDragEnd}
+      >
+        <DateLabel
+          htmlFor={`modal-${task.text}`}
+          className="modal-button cursor-pointer max-w-xs"
+          onClick={handleClick}
+        >
           <Card className="bg-white rounded-xl">
             <span className="group flex items-center lg:text-sm lg:leading-6 font-medium text-black flex justify-between">
               <div>{task.text}</div>
               <div>
-                <img width="20" height="20" src="https://i.ibb.co/jZp3SQ3/tab.png" alt="약 이미지" />
+                <img
+                  width="20"
+                  height="20"
+                  src="https://i.ibb.co/jZp3SQ3/tab.png"
+                  alt="약 이미지"
+                />
               </div>
             </span>
           </Card>
         </DateLabel>
       </Draggable>
-      <input type="checkbox" id={`modal-${task.text}`} className="modal-toggle" />
+      <input
+        type="checkbox"
+        id={`modal-${task.text}`}
+        className="modal-toggle"
+      />
       <label htmlFor={`modal-${task.text}`} className="modal cursor-pointer">
         <label className="modal-box" htmlFor="">
           <h3 className="text-lg text-black font-semibold mb-1">{task.text}</h3>
 
           {supplementInfo.map((info: supInfo) => (
-            <Supplements info={info} task={task} key={info.Supplement.caution} />
+            <Supplements
+              info={info}
+              task={task}
+              key={info.Supplement.caution}
+            />
           ))}
         </label>
       </label>
 
-      <ul role="list" className="marker:text-teal-400 list-disc pl-8 space-y-3 text-slate-500 mb-2">
+      <ul
+        role="list"
+        className="marker:text-teal-400 list-disc pl-8 space-y-3 text-slate-500 mb-2"
+      >
         {supType.map((info: supInfo) => (
           <SupItem key={info.pk_plan_id} info={info} />
         ))}

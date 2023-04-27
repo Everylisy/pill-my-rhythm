@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { get, post } from "../../Api";
-import { checkListAtom, end, levelsAtom, start } from "../../atoms";
+import { post } from "../../Api";
+import { checkListAtom, levelsAtom } from "../../atoms";
 import { Levels } from "./Calendar";
 
 interface CheckListProp {
@@ -75,13 +75,15 @@ const CheckList = ({ data }: CheckListProp) => {
   };
 
   const handleSubmit = async () => {
-    const result = checkList.map((el: any) => (checkedInputs.includes(el.text) ? true : false));
+    const result = checkList.map((el: any) =>
+      checkedInputs.includes(el.text) ? true : false,
+    );
     const offset = new Date().getTimezoneOffset() * 60000;
     const current = new Date(data.date.getTime() - offset);
     const checkListDate = current.toISOString().substring(0, 10);
 
     try {
-      await post("checklist/create", {
+      const res = await post("checklist/create", {
         date: checkListDate,
         one: result[0],
         two: result[1],
@@ -90,23 +92,30 @@ const CheckList = ({ data }: CheckListProp) => {
         five: result[4],
         six: result[5],
       });
+      setLevel((prev) => [...prev, res.data]);
     } catch (error: any) {
       console.log(error);
       if (error.response.data.message) {
         alert(error.response.data.message);
       }
     }
-
-    await get(`schedule/week?start=${new Date(start)}&finish=${new Date(end)}`).then((res) => {
-      setLevel(res.data.checklist);
-    });
   };
+
   return (
     <>
-      <DateLabel id="checklistArea" htmlFor={`modal-${data.text}`} className="modal-button cursor-pointer" color={color}>
+      <DateLabel
+        id="checklistArea"
+        htmlFor={`modal-${data.text}`}
+        className="modal-button cursor-pointer"
+        color={color}
+      >
         {data.text}
       </DateLabel>
-      <input type="checkbox" id={`modal-${data.text}`} className="modal-toggle" />
+      <input
+        type="checkbox"
+        id={`modal-${data.text}`}
+        className="modal-toggle"
+      />
       <label htmlFor={`modal-${data.text}`} className="modal cursor-pointer">
         <label className="modal-box max-w-xs" htmlFor={`modal-${data.text}`}>
           <CheckListTitle>{data.text}</CheckListTitle>
@@ -125,7 +134,11 @@ const CheckList = ({ data }: CheckListProp) => {
             </TodoWrapper>
           ))}
           <div className="modal-action">
-            <CheckListBtn onClick={handleSubmit} className="btn btn-primary" htmlFor={`modal-${data.text}`}>
+            <CheckListBtn
+              onClick={handleSubmit}
+              className="btn btn-primary"
+              htmlFor={`modal-${data.text}`}
+            >
               제출
             </CheckListBtn>
           </div>

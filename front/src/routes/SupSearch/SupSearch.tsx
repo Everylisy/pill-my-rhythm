@@ -3,7 +3,23 @@ import { NavigateFunction, useLocation, useNavigate } from "react-router-dom";
 import { get } from "../../Api";
 import { useInView } from "react-intersection-observer";
 import SupCard from "./SupCard";
-import { Wrap, SearchHeader, SearchWrapper, InputWrapper, Input, LsWrapper, Form, SearchInp, VerticalDvd, BtnWrapper, Container, CardContainer, ListWrapper, CardList, SortWrapper } from "./SupStyled";
+import {
+  Wrap,
+  SearchHeader,
+  SearchWrapper,
+  InputWrapper,
+  Input,
+  LsWrapper,
+  Form,
+  SearchInp,
+  VerticalDvd,
+  BtnWrapper,
+  Container,
+  CardContainer,
+  ListWrapper,
+  CardList,
+  SortWrapper,
+} from "./SupStyled";
 import SupSearchResult from "./SupSearchResult";
 
 export interface Result {
@@ -72,7 +88,7 @@ function SupSearch() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (searchValue.length < 1) {
+    if (searchValue.toString().trim().length < 1) {
       alert("검색어를 한 글자 이상 입력해주세요.");
     } else {
       navigate(`?word=${searchValue}&page=${curPage}`);
@@ -89,7 +105,15 @@ function SupSearch() {
             <InputWrapper>
               <Input className="shadow-lg">
                 <LsWrapper>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" role="img" className="icon fill-current search-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    role="img"
+                    className="icon fill-current search-icon"
+                  >
                     <path
                       fillRule="evenodd"
                       clipRule="evenodd"
@@ -97,12 +121,19 @@ function SupSearch() {
                     />
                   </svg>
                   <Form id="SearchForm" onSubmit={handleSubmit}>
-                    <SearchInp placeholder="영양제 검색하기" onChange={handleChange} />
+                    <SearchInp
+                      placeholder="영양제 검색하기"
+                      onChange={handleChange}
+                    />
                   </Form>
                 </LsWrapper>
                 <VerticalDvd />
                 <BtnWrapper>
-                  <button type="submit" form="SearchForm" className="btn btn-ghost">
+                  <button
+                    type="submit"
+                    form="SearchForm"
+                    className="btn btn-ghost"
+                  >
                     Search
                   </button>
                 </BtnWrapper>
@@ -111,14 +142,30 @@ function SupSearch() {
             <SortWrapper>
               <div className="form-control">
                 <label className="label cursor-pointer">
-                  <span className="label-text">영양제 이름으로 검색 (기본)</span>
-                  <input type="radio" value="search_name" name="searchName" className="radio radio-black" onChange={handleOptionChange} checked={searchOption === "search_name"} />
+                  <span className="label-text">
+                    영양제 이름으로 검색 (기본)
+                  </span>
+                  <input
+                    type="radio"
+                    value="search_name"
+                    name="searchName"
+                    className="radio radio-black"
+                    onChange={handleOptionChange}
+                    checked={searchOption === "search_name"}
+                  />
                 </label>
               </div>
               <div className="form-control">
                 <label className="label cursor-pointer">
                   <span className="label-text">영양제 성분으로 검색</span>
-                  <input type="radio" value="search_raw" name="searchRaw" className="radio radio-accent" onChange={handleOptionChange} checked={searchOption === "search_raw"} />
+                  <input
+                    type="radio"
+                    value="search_raw"
+                    name="searchRaw"
+                    className="radio radio-accent"
+                    onChange={handleOptionChange}
+                    checked={searchOption === "search_raw"}
+                  />
                 </label>
               </div>
             </SortWrapper>
@@ -146,7 +193,12 @@ function SupSearch() {
               {searchResult.length === 0 ? (
                 <div>검색 결과가 없습니다. 다시 시도해주세요</div>
               ) : (
-                <SupSearchResult searchResult={searchResult} setSearchResult={setSearchResult} pageNum={Number(pageNum)} searchOption={searchOption} />
+                <SupSearchResult
+                  searchResult={searchResult}
+                  setSearchResult={setSearchResult}
+                  pageNum={Number(pageNum)}
+                  searchOption={searchOption}
+                />
               )}
             </ListWrapper>
           </CardContainer>

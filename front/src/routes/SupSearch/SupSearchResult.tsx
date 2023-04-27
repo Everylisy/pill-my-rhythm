@@ -14,7 +14,12 @@ interface ResultProps {
   searchOption: string;
 }
 
-function SupSearchResult({ searchResult, setSearchResult, pageNum, searchOption }: ResultProps) {
+function SupSearchResult({
+  searchResult,
+  setSearchResult,
+  pageNum,
+  searchOption,
+}: ResultProps) {
   const location = useLocation();
   const navigate: NavigateFunction = useNavigate();
   const word = new URLSearchParams(location.search).get("word");
@@ -52,6 +57,7 @@ function SupSearchResult({ searchResult, setSearchResult, pageNum, searchOption 
     }
   };
   const Checked = checkResultLength();
+
   return (
     <>
       {searchResult.map((data) => (
