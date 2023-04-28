@@ -7,6 +7,7 @@
 🔗 Link
 
 - Service 주소 👉 https://kdt-ai4-team17.elicecoding.com/
+> (현재 제공받은 서버 지원이 중단되어, 접속되지 않습니다.)
 - **자세한 프로젝트 소개는 해당 페이지를 확인해주세요** 👉 [프로젝트 기술 소개서](https://power-platypus-d4a.notion.site/17-27fd07d817fa4385bdda2afa5fcd674e)
 
 ## TEAM
@@ -496,6 +497,7 @@
 ### 📜 API Docs
 
 📎[Swagger API 보러가기](https://kdt-ai4-team17.elicecoding.com/api/swagger/)
+> (현재 제공받은 서버 지원이 중단되어, 접속되지 않습니다.)
 
 <br>
 
