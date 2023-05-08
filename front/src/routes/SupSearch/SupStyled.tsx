@@ -11,9 +11,10 @@ export const Wrap = styled.div`
   );
 `;
 
-export const PagingWrap = styled(Wrap)`
-  background: #f5f5fa;
-  padding-top: 20px;
+export const PagingWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SearchHeader = styled.div`
@@ -109,51 +110,20 @@ export const ListWrapper = styled.div`
 `;
 
 export const CardList = styled.div`
-  width: 20rem;
-  margin: 1rem;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 // <-- SupCard.tsx -->
 
-export const AfterContent = styled.div`
-  opacity: 0;
-  transition: all 0.2s 200ms ease-in-out;
-`;
-
 export const CardWrap = styled.div`
-  overflow: hidden;
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 20px 20px 30px 20px;
+  padding: 10px 20px;
+  margin: 10px 20px;
   text-align: center;
   cursor: pointer;
-
-  &:hover ${AfterContent} {
-    display: block;
-    opacity: 1;
-  }
-
-  &:hover::after {
-    top: 0;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 100%;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: #f7f7f7;
-    z-index: -1;
-    transition: all 0.3s 50ms ease-in-out;
-  }
+  border: 1px solid #14b8a6;
+  border-radius: 15px;
 `;
 
 export const ImgWrapper = styled.div`

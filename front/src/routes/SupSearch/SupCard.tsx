@@ -1,13 +1,6 @@
 import PRModal from "../_shared/PRModal";
 import { Result } from "./SupSearch";
-import {
-  AfterContent,
-  CardWrap,
-  ImgWrapper,
-  InfoWrapper,
-  SupName,
-  Tag,
-} from "./SupStyled";
+import { CardWrap, ImgWrapper, InfoWrapper, SupName, Tag } from "./SupStyled";
 
 interface CardProp {
   data: Result;
@@ -29,15 +22,13 @@ function SupCard({ data }: CardProp) {
         <SupName>{data.name}</SupName>
         <Tag>{data.company}</Tag>
       </InfoWrapper>
-      <AfterContent>
-        <label
-          htmlFor={`modal-${data.name}`}
-          className="btn modal-button btn-active btn-ghost"
-        >
-          더 알아보기
-        </label>
-        <PRModal pr={data} />
-      </AfterContent>
+      <label
+        htmlFor={`modal-${data.name}`}
+        className="btn modal-button btn-active btn-ghost"
+      >
+        더 알아보기
+      </label>
+      <PRModal pr={data} />
     </CardWrap>
   );
 }

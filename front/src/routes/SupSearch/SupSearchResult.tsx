@@ -60,11 +60,11 @@ function SupSearchResult({
 
   return (
     <>
-      {searchResult.map((data) => (
-        <CardList key={data.link}>
-          <SupCard data={data} />
-        </CardList>
-      ))}
+      <CardList>
+        {searchResult.map((data) => (
+          <SupCard key={data.pk_supplement_id} data={data} />
+        ))}
+      </CardList>
       <PagingWrap>
         <Pagination
           activePage={pageNum}
