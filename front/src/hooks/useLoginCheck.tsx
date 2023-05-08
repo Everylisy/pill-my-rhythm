@@ -6,7 +6,6 @@ import { useEffect } from "react";
 export const useLoginCheck = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
-  //   console.log("Loginuser", user);
 
   useEffect(() => {
     if (user.length === 0) {

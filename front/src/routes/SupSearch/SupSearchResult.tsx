@@ -49,7 +49,7 @@ function SupSearchResult({
   }, [fetchSearchSup]);
 
   const checkResultLength = () => {
-    let allPageLength = Math.ceil(totalCount / 16);
+    const allPageLength = Math.ceil(totalCount / 16);
     if (allPageLength >= 10) {
       return 10;
     } else if (allPageLength < 10) {

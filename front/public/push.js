@@ -14,7 +14,11 @@ const vapidKeys = {
   privateKey: process.env.REACT_APP_WEB_PUSH_PRIVATE_KEY,
 };
 
-webpush.setVapidDetails("mailto:s0n9h2@gmail.com", vapidKeys.publicKey, vapidKeys.privateKey);
+webpush.setVapidDetails(
+  "mailto:s0n9h2@gmail.com",
+  vapidKeys.publicKey,
+  vapidKeys.privateKey,
+);
 
 const rl = createInterface({
   input: process.stdin,

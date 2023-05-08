@@ -1,4 +1,3 @@
-import React from "react";
 import { PillData } from "../Search/Result/PRList";
 
 const PRModal = ({ pr }: PillData) => {
@@ -11,7 +10,11 @@ const PRModal = ({ pr }: PillData) => {
           <hr className="my-2" />
           <div className="flex md:flex-row flex-col justify-center items-center leading-normal p-1">
             <div className="flex flex-col md:w-3/6 justify-center items-center">
-              <img className="flex w-48 rounded-lg" src={pr.img_link} alt="pills" />
+              <img
+                className="flex w-48 rounded-lg"
+                src={pr.img_link}
+                alt="pills"
+              />
               <div className="mx-2 md:px-2 leading-normal">
                 <p className="font-bold">성분</p>
                 <p>{pr.raw}</p>
@@ -25,16 +28,32 @@ const PRModal = ({ pr }: PillData) => {
               <p className=" font-bold">사용법 </p>
               <p>{pr.how_to_eat}</p>
               <div className="px-2 py-1 my-2 border border-solid rounded border-red-500 border-2">
-                <p className="pt-2 font-bold text-red-600">※ 복용 전 유의사항 ※</p>
+                <p className="pt-2 font-bold text-red-600">
+                  ※ 복용 전 유의사항 ※
+                </p>
                 <p className="">{pr.caution}</p>
               </div>
             </div>
           </div>
           <div className="flex justify-end pt-2">
-            <button className="btn btn-primary" onClick={() => window.open(pr.link, "_blank")}>
+            <button
+              className="btn btn-primary"
+              onClick={() => window.open(pr.link, "_blank")}
+            >
               주문하러 가기
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 px-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 px-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </button>
           </div>

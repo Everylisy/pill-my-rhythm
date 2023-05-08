@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Promotion from "./Promotion";
 import PRCard from "../../_shared/PRCard";
 import { useLocation } from "react-router";
@@ -23,15 +23,12 @@ export interface PillData {
 const PRList = () => {
   const { state }: any = useLocation();
   const pillResultList = state.results;
-  const [pillResult, setPillResult] = useState<Array<PillData["pr"]>>(pillResultList);
-  const [resultData, setResultData] = useState<Boolean>(true);
-
-  // console.log("#pillResultList", pillResultList);
-  // console.log("#pillResult", pillResult);
+  const [pillResult, setPillResult] =
+    useState<Array<PillData["pr"]>>(pillResultList);
+  const [resultData, setResultData] = useState<boolean>(true);
 
   const CheckResult = () => {
     if (pillResult.length === 0) {
-      // console.log("빈배열");
       setResultData(false);
     } else setResultData(true);
   };

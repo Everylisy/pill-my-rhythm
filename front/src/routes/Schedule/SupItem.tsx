@@ -1,7 +1,7 @@
 import React from "react";
 import { useSetRecoilState } from "recoil";
-import { del, get } from "../../Api";
-import { end, start, supplementAtom } from "../../atoms";
+import { del } from "../../Api";
+import { supplementAtom } from "../../atoms";
 import { supInfo } from "./DayItem";
 
 interface supProps {

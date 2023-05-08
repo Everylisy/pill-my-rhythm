@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import UserBookMarkList from "./UserBookMarkPage";
 import UserMyPage from "./UserMyPage";
 import UserRecommendPage from "./UserRecommendPage";
@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 const MyPage = () => {
   const navigate = useNavigate();
   const Recoiluser = useRecoilValue(userState);
-  // console.log(Recoiluser);
   const isLogin = !(Recoiluser.length === 0);
 
   useEffect(() => {

@@ -51,7 +51,11 @@ const Dispatcher: React.FunctionComponent<DispatcherProps> = ({ children }) => {
     return <Loading />;
   }
 
-  return <DispatchContext.Provider value={dispatch}>{children}</DispatchContext.Provider>;
+  return (
+    <DispatchContext.Provider value={dispatch}>
+      {children}
+    </DispatchContext.Provider>
+  );
 };
 
 export default Dispatcher;

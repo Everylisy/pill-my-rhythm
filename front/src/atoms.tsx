@@ -1,19 +1,18 @@
 import moment, { unitOfTime } from "moment";
 import { Appointments, Levels, Supplements } from "./routes/Schedule/Calendar";
-import { atom, selector } from "recoil";
-import { get } from "./Api";
+import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist({
-  key: "recoil-persist", // this key is using to store data in local storage
-  storage: sessionStorage, // configurate which stroage will be used to store the data
+  key: "recoil-persist",
+  storage: sessionStorage,
 });
 
 export const currentDate = new Date(moment().format());
-export let start = moment()
+export const start = moment()
   .startOf("isoweek" as unitOfTime.StartOf)
   .format();
-export let end = moment().isoWeekday("Sunday").format();
+export const end = moment().isoWeekday("Sunday").format();
 
 export const supplementAtom = atom<Supplements[]>({
   key: "supplements",
@@ -92,34 +91,6 @@ export const appointmentsAtom = atom<Appointments[]>({
   key: "appointment",
   default: [],
 });
-
-// export const LoginState = atom<boolean>({
-//   key: "LoginState",
-//   default: false,
-//   effects_UNSTABLE: [persistAtom],
-// });
-
-// export const CurrentuserState = atom({
-//   key: "user",
-//   default: selector({
-//     key: "user/get",
-//     get: async () => {
-//       const token = sessionStorage.getItem("userToken");
-//       if (!token) return null;
-
-//       try {
-//         const res = await get("user/current");
-//         const currentUser = res.data;
-//         return currentUser;
-//       } catch (error: any) {
-//         sessionStorage.removeItem("userToken");
-//         console.error(`in User Recoil: ${error.message}`);
-//         return null;
-//       }
-//     },
-//   }),
-//   effects_UNSTABLE: [persistAtom],
-// });
 
 export const levelsAtom = atom<Levels[]>({
   key: "level",

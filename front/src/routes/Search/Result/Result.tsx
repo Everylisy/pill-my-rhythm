@@ -1,4 +1,3 @@
-import React from "react";
 import VideoArea from "./VideoArea";
 import RecommendationArea from "./RecommendationArea";
 

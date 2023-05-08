@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 const PRCard = ({ pr }: PillData) => {
   const user = useRecoilValue(userState);
-  // console.log("user", user);
   const isLogin = !(user.length === 0);
   const supplement_id = pr.pk_supplement_id;
   const navigate = useNavigate();
@@ -18,13 +17,16 @@ const PRCard = ({ pr }: PillData) => {
     navigate("/login");
   };
 
-  // console.log("#pr.pk_supplement_id", pr.pk_supplement_id);
-
-  const [bookMark, setBookMark] = useState<Boolean>();
+  const [bookMark, setBookMark] = useState<boolean>();
   const [bookMarkList, setBookMarkList] = useState([]);
 
   const DBcheckBookMark = (bookMarkList: Array<any>) => {
-    if (bookMarkList.some((Supplement) => Supplement.Supplement.pk_supplement_id === pr.pk_supplement_id)) {
+    if (
+      bookMarkList.some(
+        (Supplement) =>
+          Supplement.Supplement.pk_supplement_id === pr.pk_supplement_id,
+      )
+    ) {
       setBookMark(true);
     } else {
       setBookMark(false);
@@ -62,19 +64,18 @@ const PRCard = ({ pr }: PillData) => {
     }
   };
 
-  useEffect(
-    () => {
-      loadBookMarkList();
-      // DBcheckBookMark(bookMarkList);
-    },
-    [bookMark],
-    // [bookMark, bookMarkList],
-  );
+  useEffect(() => {
+    loadBookMarkList();
+  }, [bookMark]);
 
   return (
     <div className="card card-compact w-80 bg-base-100 shadow-xl m-4">
       <figure>
-        <img className="w-48 m-6 rounded-lg backdrop-contrast-125 bg-white/30" src={pr.img_link} alt="pills" />
+        <img
+          className="w-48 m-6 rounded-lg backdrop-contrast-125 bg-white/30"
+          src={pr.img_link}
+          alt="pills"
+        />
       </figure>
       <div className="card-body">
         <div className="flex flex-row flex-wrap items-center break-words">
@@ -96,7 +97,10 @@ const PRCard = ({ pr }: PillData) => {
               <FilledBookMark onClick={HandleBookMarkChange} />
             </label>
           )}
-          <label htmlFor={`modal-${pr.name}`} className="btn modal-button btn-primary">
+          <label
+            htmlFor={`modal-${pr.name}`}
+            className="btn modal-button btn-primary"
+          >
             더 알아보기
           </label>
           <PRModal pr={pr} key={pr.pk_supplement_id} />

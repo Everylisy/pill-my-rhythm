@@ -53,7 +53,7 @@ export interface Levels {
   level: string;
 }
 
-const views: Array<Object> = [{ type: "week" }];
+const views: Array<object> = [{ type: "week" }];
 const draggingGroupName = "appointmentsGroup";
 
 function Calendar() {
@@ -68,10 +68,10 @@ function Calendar() {
   const user = useRecoilValue(userState);
 
   const onCurrentDateChange = useCallback((e: any) => {
-    let start = moment(e)
+    const start = moment(e)
       .startOf("isoweek" as unitOfTime.StartOf)
       .format();
-    let end = moment(e).isoWeekday("Sunday").format();
+    const end = moment(e).isoWeekday("Sunday").format();
 
     get(`schedule/week?start=${new Date(start)}&finish=${new Date(end)}`).then(
       (res) => {

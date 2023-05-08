@@ -1,13 +1,14 @@
-import React from "react";
-
 const Pmrguide = () => {
   return (
     <div className="w-screen min-h-screen bg-gradient-to-tl from-[#7FDCDC] to-[#E3F2ED] flex items-center justify-center">
-      {" "}
       <div className="w-full md:w-[68.75rem] py-20 min-h-screen flex flex-col items-center justify-center">
         <div className="w-fit p-2 flex flex-wrap items-center justify-center">
           <div className="p-4 md:p-2 w-full md:w-5/12 ">
-            <img src="https://blog.kakaocdn.net/dn/wDgQv/btrGet16eNM/UKyMuTzHQpS7QevKRDgp3K/img.gif" alt="search service" className="rounded-lg shadow-2xl w-[650px]" />
+            <img
+              src="https://blog.kakaocdn.net/dn/wDgQv/btrGet16eNM/UKyMuTzHQpS7QevKRDgp3K/img.gif"
+              alt="search service"
+              className="rounded-lg shadow-2xl w-[650px]"
+            />
           </div>
           <div className="p-2 m-2 break-words text-center">
             <h1 className="text-2xl md:text-5xl font-bold leading-relaxed md:leading-normal text-white mx-3 md:mx-6">
@@ -27,7 +28,11 @@ const Pmrguide = () => {
         </div>
         <div className="py-20 w-fit p-2 flex flex-wrap flex-row-reverse items-center justify-center">
           <div className="p-4 md:p-2 w-full md:w-5/12 ">
-            <img src="https://blog.kakaocdn.net/dn/rzaCb/btrGflKVrs5/SeDkkBnzMykVDuSTgFXspk/img.gif" alt="search service" className="rounded-lg shadow-2xl w-[650px]" />
+            <img
+              src="https://blog.kakaocdn.net/dn/rzaCb/btrGflKVrs5/SeDkkBnzMykVDuSTgFXspk/img.gif"
+              alt="search service"
+              className="rounded-lg shadow-2xl w-[650px]"
+            />
           </div>
           <div className="p-2 m-2 break-words text-center">
             <h1 className="text-2xl md:text-5xl font-bold leading-relaxed md:leading-normal text-white mx-3 md:mx-6">
@@ -45,7 +50,11 @@ const Pmrguide = () => {
         </div>
         <div className="py-20 w-fit p-2 flex flex-wrap items-center justify-center">
           <div className="p-4 md:p-2 w-full md:w-5/12">
-            <img src="https://blog.kakaocdn.net/dn/baJ07o/btrGfn1zxpA/qDYoteZOs4bAQ7hXDoo6y0/img.gif" alt="search service" className="rounded-lg shadow-2xl w-[650px]" />
+            <img
+              src="https://blog.kakaocdn.net/dn/baJ07o/btrGfn1zxpA/qDYoteZOs4bAQ7hXDoo6y0/img.gif"
+              alt="search service"
+              className="rounded-lg shadow-2xl w-[650px]"
+            />
           </div>
           <div className="p-2 m-2 break-words text-center">
             <h1 className="text-2xl md:text-5xl font-bold leading-relaxed md:leading-normal text-white mx-3 md:mx-6">

@@ -46,11 +46,18 @@ self.addEventListener("push", (event) => {
   switch (messageType) {
     case "info": {
       // 브라우저는 전달된 Promise가 확인될 때까지 서비스 워커를 활성화 및 실행 상태로 유지
-      event.waitUntil(self.registration.showNotification(data.title, infoMessageOptions));
+      event.waitUntil(
+        self.registration.showNotification(data.title, infoMessageOptions),
+      );
       break;
     }
     case "supplement": {
-      event.waitUntil(self.registration.showNotification(data.title, supplementMessageOptions));
+      event.waitUntil(
+        self.registration.showNotification(
+          data.title,
+          supplementMessageOptions,
+        ),
+      );
     }
     // no default
   }
@@ -70,7 +77,11 @@ self.addEventListener(
       case "checklist-action": // 오늘 날짜의 체크리스트
         const { encryptedToken } = event.notification.data;
         // public 폴더 안에서는 .env 변수 접근 안 됨
-        event.waitUntil(self.clients.openWindow(`http://localhost:3000/m/checklist?token=${encryptedToken}`));
+        event.waitUntil(
+          self.clients.openWindow(
+            `http://localhost:3000/m/checklist?token=${encryptedToken}`,
+          ),
+        );
         break;
       // no default
     }

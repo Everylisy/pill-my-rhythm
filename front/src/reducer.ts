@@ -1,4 +1,7 @@
-export function loginReducer(userState: any, action: { type: any; payload: any }) {
+export function loginReducer(
+  userState: any,
+  action: { type: any; payload: any },
+) {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       console.log("%c로그인!", "color: #d93d1a;");
